@@ -1,0 +1,17 @@
+{
+  "name": "plum",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {},
+  "license": "MIT",
+  "script": {
+    "start": "lite-server"
+  },
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  },
+  "dependencies": {
+    "angular": "1.6.1",
+    "bootstrap": "3.3.7"
+  }
+}
