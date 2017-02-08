@@ -25,22 +25,6 @@
                 const vm = this;
                 vm.$onInit = () => {
                     vm.showForm = false;
-                    vm.sortOptions = [{
-                                value: '-likes',
-                                text: 'popular'
-                            }, {
-                                value: '-timestamp',
-                                text: 'date'
-                            },
-                            {
-                                value: 'title',
-                                text: 'title'
-                            }
-                        ],
-                        vm.selectedSort = {
-                            value: '-likes',
-                            text: 'popular'
-                        }
                     vm.posts = [{
                             id: 0,
                             timestamp: new Date('2016-12-17T03:24:00'),
@@ -62,6 +46,7 @@
                             likes: 0
                         }
                     ];
+                    vm.sort = "-likes";
                 }
                 vm.showPostForm = () => {
                     vm.showForm = true;

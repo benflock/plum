@@ -2,8 +2,8 @@
 <button class="btn btn-info pull-right" ng-show="$ctrl.showForm === false" ng-click="$ctrl.showPostForm()">Write New Post</button>
 <form>
 
-<input ng-show="$ctrl.showForm === false" type="text" ng-model="search" placeholder="filter">
-<select ng-model="sort">
+    <input ng-show="$ctrl.showForm === false" type="text" ng-model="search" placeholder="filter">
+    <select ng-model="$ctrl.sort">
   <option value="-likes">popular</option>
   <option value="-timestamp">date</option>
   <option value="title">title</option>
@@ -24,7 +24,7 @@
     <button type="submit" class="btn btn-success">Post</button>
 </form>
 <ul id="posts">
-    <li class="row post" ng-repeat="post in $ctrl.posts | orderBy:sort | filter:search">
+    <li class="row post" ng-repeat="post in $ctrl.posts | orderBy:$ctrl.sort | filter:search">
         <div class="col-sm-3">
             <img src="{{post.image}}" alt="{{post.title}} image">
         </div>
