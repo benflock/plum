@@ -1,0 +1,59 @@
+<h2>posts</h2>
+<button class="btn btn-info pull-right" ng-show="$ctrl.showForm === false" ng-click="$ctrl.showPostForm()">Write New Post</button>
+<form>
+
+<input ng-show="$ctrl.showForm === false" type="text" ng-model="search" placeholder="filter">
+<select ng-model="sort">
+  <option value="-likes">popular</option>
+  <option value="-timestamp">date</option>
+  <option value="title">title</option>
+</select>
+</form>
+<form ng-show="$ctrl.showForm" ng-submit="$ctrl.submitPost()" class="form" name="$ctrl.postForm" novalidate>
+    <h3>New Post</h3>
+    <label for="post-form-title">Title</label>
+    <input required id="post-form-title" class="form-control" type="text" ng-model="$ctrl.post.title" name="$ctrl.postForm.title">
+    <label for="post-form-body">Body</label>
+    <textarea required id="post-form-body" class="form-control" ng-model="$ctrl.post.body" name="$ctrl.postForm.body"></textarea>
+    <label for="post-form-author">Author</label>
+    <input required id="post-form-author" class="form-control" type="text" ng-model="$ctrl.post.author" name="$ctrl.postForm.author">
+    <label for="post-form-image">Image URL</label>
+    <input required id="post-form-image" class="form-control" type="text" ng-model="$ctrl.post.image" name="$ctrl.postForm.image">
+    <a class="pull-right" ng-click="$ctrl.hidePostForm()">Cancel</a>
+    <br>
+    <button type="submit" class="btn btn-success">Post</button>
+</form>
+<ul id="posts">
+    <li class="row post" ng-repeat="post in $ctrl.posts | orderBy:sort | filter:search">
+        <div class="col-sm-3">
+            <img src="{{post.image}}" alt="{{post.title}} image">
+        </div>
+        <div class="post-group col-sm-9">
+            <h3>{{post.title}} <span>by {{post.author}}</span></h3>
+            <span class="likes pull-right"><span ng-if="post.likes > 0" class="small gray margin-horizontal-1rem">{{post.likes}}</span> <span class="glyphicon glyphicon-thumbs-up green" ng-click="$ctrl.like(post.id)"></span>
+            <span class="glyphicon glyphicon-thumbs-down red" ng-click="$ctrl.dislike(post.id)"></span>
+            </span>
+            <p>{{post.body}}</p>
+            <a class="pull-right" ng-click="$ctrl.showComments(post.id)">
+                <span class="comment-count small" ng-show="post.comments.length > 0"><ng-pluralize count="post.comments.length" when="{'one': '1 comment', 'other': '{} comments'}"></ng-pluralize></span>
+                <span class="glyphicon glyphicon-comment gray" aria-hidden="true"></span>
+            </a>
+            <span class="small gray pull-left" am-time-ago="post.timestamp"></span>
+        </div>
+        <div ng-show="post.showComments" class="col-sm-12 comments">
+            <ul ng-if="post.comments.length > 0">
+                <li ng-repeat="comment in post.comments">
+                    <p>{{comment.text}}</p>
+                </li>
+            </ul>
+            <br>
+            <div class="comment-form input-group">
+                <input type="text" ng-model="post.comment" class="form-control" placeholder="write a comment">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" ng-click="$ctrl.postComment(post.id)" type="button">send</button>
+                </span>
+            </div>
+            <a class="pull-right small" ng-click="$ctrl.hideComments(post.id)">hide comments</a>
+        </div>
+    </li>
+</ul>

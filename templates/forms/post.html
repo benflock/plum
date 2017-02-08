@@ -1,0 +1,13 @@
+<a ng-show="$ctrl.showForm === false" ng-click="$ctrl.showPostForm()">Write New Post</a>
+<form ng-show="$ctrl.showForm" class="form" name="$ctrl.postForm" novalidate>
+    <label for="post-form-title">Title</label>
+    <input id="post-form-title" class="form-control" type="text" ng-model="$ctrl.post.title" name="$ctrl.postForm.title">
+    <label for="post-form-body">Body</label>
+    <textarea id="post-form-body" class="form-control" ng-model="$ctrl.post.body" name="$ctrl.postForm.body"></textarea>
+    <label for="post-form-author">Author</label>
+    <input id="post-form-author" class="form-control" type="text" ng-model="$ctrl.post.author" name="$ctrl.postForm.author">
+    <label for="post-form-image">Image URL</label>
+    <input id="post-form-image" class="form-control" type="text" ng-model="$ctrl.post.image" name="$ctrl.postForm.image" value="">
+    <a class="pull-right" ng-click="$ctrl.hidePostForm()">Cancel</a>
+    <button type="submit" class="btn btn-success">Post</button>
+</form>

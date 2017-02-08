@@ -1,0 +1,73 @@
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+}
+a {
+  cursor: pointer;
+}
+#posts {
+  /*border: 0.1rem solid rgba(0,0,0,0.1);
+  border-radius: .3rem;*/
+  padding: 2rem 0;
+}
+.post {
+  border: 0.1rem solid rgba(0,0,0,0.1);
+  border-radius: .3rem;
+  padding: 2rem 1rem;
+  margin: 0;
+  background-color: #fbfbfb;
+}
+.post:not(:last-child) {
+  margin-bottom: 2rem;
+}
+.post h3 {
+  display: inline-block;
+}
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+.gray {
+  color: rgba(0,0,0,0.5);
+}
+.small {
+  font-size: 0.8em;
+}
+.margin-horizontal-1rem {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+.glyphicon {
+  cursor: pointer;
+}
+.likes {
+  margin-top: .5rem;
+}
+.likes span:not(.gray) {
+  margin-left: .5rem;
+}
+.ng-invalid.ng-touched {
+  border: .1rem solid red;
+}
+.comments ul {
+  margin: 6rem auto 0;
+  padding: 1rem .5rem;
+  background-color: #fff;
+  border-radius: 0.3rem;
+}
+.comments ul li {
+color: #555
+.comment-count {
+  margin-right: 1rem;
+}
